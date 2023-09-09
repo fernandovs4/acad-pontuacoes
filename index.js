@@ -172,6 +172,145 @@ const atualiza_tabela = ( justificativa, horas_treino, link_foto)=> {
     
 }
 
+
+
+
+
+
+ 
+
+
+const arquivo = 'tabela_dados.json'; // Substitua pelo caminho do arquivo
+
+const owner = 'fernandovs4'; // Seu nome de usuário do GitHub
+const repo = 'acad-pontuacoes'; // Seu repositório no GitHub
+const branch = 'main'; // Nome da branch que você deseja usar
+const token = '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'; // Seu token de acesso pessoal do GitHub
+const filePath = 'tabela_dados.json'; // Caminho para o arquivo JSON local
+const commitMessage = 'Adicionando arquivo tabela dados'; // Mensagem do commit
+
+
+// JSON que você deseja atualizar no repositório
+
+const jsonData = {
+
+    key1: 'valor1',
+
+    key2: 'valor2',
+
+    // Adicione mais propriedades conforme necessário
+
+};
+
+ 
+
+// Função para obter o SHA do arquivo
+
+function getSHA() {
+
+    const getRequest = new XMLHttpRequest();
+
+    getRequest.open('GET', `https://api.github.com/repos/${owner}/${repo}/contents/${arquivo}`, true);
+
+    getRequest.setRequestHeader('Authorization', `${token}`);
+
+    getRequest.onload = function () {
+
+        if (getRequest.status === 200) {
+
+            const response = JSON.parse(getRequest.responseText);
+
+            const sha = response.sha;
+
+            console.log(`SHA do arquivo ${arquivo}: ${sha}`);
+
+ 
+
+            // Agora você pode usar o SHA para atualizar o arquivo, se desejar
+
+            updateFile(sha);
+
+        } else {
+
+            console.error('Erro ao obter o SHA do arquivo:', getRequest.responseText);
+
+        }
+
+    };
+
+ 
+
+    getRequest.send();
+
+}
+
+ 
+
+// Função para atualizar o arquivo
+
+function updateFile(sha) {
+
+    const requestData = {
+
+        message: 'Atualização do arquivo cota.json',
+
+        content: btoa(JSON.stringify(jsonData)), // Codificar o JSON em base64
+
+        sha: sha, // SHA do arquivo existente
+
+    };
+
+ 
+
+    const postRequest = new XMLHttpRequest();
+
+    postRequest.open('PUT', `https://api.github.com/repos/${owner}/${repo}/contents/${arquivo}`, true);
+
+    postRequest.setRequestHeader('Authorization', `${token}`);
+
+    postRequest.setRequestHeader('Content-Type', 'application/json');
+
+    postRequest.onload = function () {
+
+        if (postRequest.status === 200) {
+
+            console.log('Arquivo cota.json atualizado com sucesso');
+
+            alert('Arquivo cota.json atualizado com sucesso!');
+
+        } else {
+
+            console.error('Erro ao atualizar o arquivo cota.json:', postRequest.responseText);
+
+            alert('Erro ao atualizar o arquivo cota.json');
+
+        }
+
+    };
+
+ 
+
+    postRequest.send(JSON.stringify(requestData));
+
+}
+
+ 
+
+// Chame a função para obter o SHA quando necessário
+
+getSHA();
+
+
+
+
+
+
+
+
+
+
+
+
 function envia_dados_tabela() {
     const owner = 'fernandovs4'; // Seu nome de usuário do GitHub
     const repo = 'acad-pontuacoes'; // Seu repositório no GitHub
