@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pontuador de pontos</title>
+   
+    <style>
+        table{
+            
+            border: 2px solid black; 
+            border-collapse: collapse;
+            min-width: 400px;
+            margin: auto   ;
+            margin-top:5em;
+            
+
+        }
+        table th{
+            border: 2px solid black; 
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        table td{
+            border: 2px solid black; 
+            border-collapse: collapse;
+            text-align: center;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+            text-align: center;
+            margin-top: 20px;
+            font-size: larger;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+            }
+                 
+        input{
+            margin: 5px 0px;
+        }
+        .imagem{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <label> Digite seu nome:</label>
+     <input type="text" name="nome" id="nome" placeholder="Seu nome">
+        <label for="foi_acad" >Foi para a academia hoje?</label>
+        <select>
+            <option value="sim" >Sim</option>
+            <option value="nao" >Não</option>
+        </select>
+        <div class="imagem">
+            <label for="foto">Selecione uma imagem:</label>
+            <input type="file" name="foto" id="foto" accept="image/*">
+        </div>
+        
+        
+       
+        <label for="horas">Minutos de treino:</label>
+        <input type="number" name="horas" id="horas" >
+
+        <input type="text" class="justificativa" placeholder="Se faltou, justifique aqui" >
+
+        <button id="upload-button">Enviar  informacoes</button>
+    </div>
+    
+   <div class="table">
+
+   </div>
+   <script src="index.js" ></script>
+  
+
+</body>
+</html>
