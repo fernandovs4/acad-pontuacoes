@@ -176,7 +176,7 @@ function envia_dados_tabela() {
     const owner = 'fernandovs4'; // Seu nome de usuário do GitHub
     const repo = 'acad-pontuacoes'; // Seu repositório no GitHub
     const branch = 'main'; // Nome da branch que você deseja usar
-    const token = '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'; // Seu token de acesso pessoal do GitHub
+    const token = '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'; // Seu token de acesso pessoal do GitHub
     const filePath = 'tabela_dados.json'; // Caminho para o arquivo JSON local
     const commitMessage = 'Adicionando arquivo tabela dados'; // Mensagem do commit
   
@@ -252,7 +252,7 @@ carregou_pagina()
                             const imageDataUrl = e.target.result;
             
                            
-                            const token = "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";
+                            const token = "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";
                             const username = "fernandovs4";
                             const repository = "acad-pontuacoes";
             
